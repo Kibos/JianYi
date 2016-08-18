@@ -1,0 +1,20 @@
+## Client
+
+
+外部引入
+
+#
+angular-min.js
+
+
+
+#
+angular-ui-router
+
+http://www.tuicool.com/articles/zeiy6ff
+https://angular-ui.github.io/ui-router/site/#/api/ui.router
+
+
+#
+angular-resource
+解决引入 lbServices 资源管理相关 ngResource
