@@ -2,5 +2,19 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/aabbcc",
+    "database": "mongose-loop",
+    "password": "",
+    "name": "mongodb",
+    "user": "",
+    "connector": "mongodb"
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
   }
 }
