@@ -16,6 +16,9 @@
     <li>
       <a ui-sref="commodity" ui-sref-active="active">商品管理</a>
     </li>
+    <li>
+      <a ui-sref="account.account-define" ui-sref-active="active">管理</a>
+    </li>
   </ul>
 </nav>
 
@@ -25,8 +28,18 @@
 <script src="app/lib/bower_components/angular/angular.js"></script>
 <script src="app/lib/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app/lib/bower_components/angular-resource/angular-resource.js"></script>
-<script src="app/src/app.js"></script>
+
 <script src="app/src/services/lb-services.js"></script>
+
+<script src="app/src/account/account.module.js"></script>
+<script src="app/src/account/account.config.js"></script>
+<script src="app/src/account/account.run.js"></script>
+<script src="app/src/account/pages/account.controller.js"></script>
+
+
+<script src="app/src/app.module.js"></script>
+<script src="app/src/config.route.js"></script>
+<script src="app/src/app.run.js"></script>
 
 </body>
 
