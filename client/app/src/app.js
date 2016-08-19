@@ -11,14 +11,14 @@ angular
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider,
       $urlRouterProvider) {
     $stateProvider
-      .state('login', {
-        url: '/login',
-        templateUrl: 'views/commodity/commodity_modify.html',
+      .state('commodity', {
+        url: '/commodity/modify',
+        templateUrl: 'app/src/commodity/commodity_modify.html',
         authenticate: true
       })
       .state('order', {
-        url: '/order',
-        templateUrl: 'views/order/order_my.html',
+        url: '/order/order_my',
+        templateUrl: 'app/src/order/order_my.html',
         authenticate: true
       })
     ;
