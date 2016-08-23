@@ -8,15 +8,18 @@
     "posttest": "nsp check"
   },
   "dependencies": {
+    "angular-permission": "^4.0.3",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^1.3.0",
+    "leancloud-storage": "^1.3.3",
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
+    "loopback-component-storage": "^1.9.0",
+    "loopback-connector-mongodb": "^1.15.2",
     "loopback-datasource-juggler": "^2.39.0",
     "path": "^0.12.7",
-    "loopback-connector-mongodb": "^1.15.2",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^1.0.1"
   },
