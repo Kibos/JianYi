@@ -6,7 +6,7 @@
   "mongodb": {
     "host": "localhost",
     "port": 27017,
-    "url": "mongodb://localhost:27017/aabbcc",
+    "url": "mongodb://localhost:27017/jyData",
     "database": "mongose-loop",
     "password": "",
     "name": "mongodb",

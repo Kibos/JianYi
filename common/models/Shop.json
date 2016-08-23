@@ -1,0 +1,29 @@
+{
+  "name": "Shop",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "seller": {
+      "type": "object",
+      "required": true,
+      "default": null
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "\"shopName\""
+    },
+    "createTime": {
+      "type": "date",
+      "required": true,
+      "default": "1970-01-01T00:00:01.990Z"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
