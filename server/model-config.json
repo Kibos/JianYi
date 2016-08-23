@@ -60,13 +60,23 @@
     "dataSource": "mongodb",
     "public": false
   },
-  "container": {
-  "dataSource": "storage",
-  "public": true
+  "Product": {
+    "dataSource": "mongodb",
+    "public": true
   },
-
-  
-  "product": {
+  "Order": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Customer": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Shop": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Seller": {
     "dataSource": "mongodb",
     "public": true
   },
