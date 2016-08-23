@@ -8,7 +8,10 @@ angular
   .module('app', [
     'ui.router',
     'lbServices',
-    'app.account'
+    'app.account',
+    'ui.bootstrap',
+    'ngTouch',
+    'ngAnimate'
   ])
 
 })();

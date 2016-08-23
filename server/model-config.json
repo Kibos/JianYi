@@ -13,25 +13,59 @@
       "./mixins"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
+
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
+
+  "user": {
+    "dataSource": "mongodb",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },
+  "Email": {
+    "dataSource": "emailDs"
+  },
+  "JyUser": {
+    "dataSource": "mongodb",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": false
+    }
+  },
+  "org": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "JyOrg": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "User": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "container": {
+  "dataSource": "storage",
+  "public": true
+  },
+
+  
   "product": {
     "dataSource": "mongodb",
     "public": true

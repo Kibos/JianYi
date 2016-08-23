@@ -16,5 +16,31 @@
   "transient": {
     "name": "transient",
     "connector": "transient"
+  },
+    "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "filesystem",
+    "root": "./server/storage"
+  },
+    "emailDs": {
+    "name": "emailDs",
+    "defaultForType": "mail",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.163.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "13165508732@163.com",
+          "pass": "783243077"
+        }
+      }
+    ]
   }
 }
