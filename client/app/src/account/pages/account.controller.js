@@ -8,6 +8,6 @@ angular
 function accountController($state, User) {
     var vm = this;
 
-    
+    User.login()
 }
 })();
