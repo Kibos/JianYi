@@ -35,5 +35,13 @@
   "product": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "category": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "picture": {
+    "dataSource": "mongodb",
+    "public": true
   }
 }
