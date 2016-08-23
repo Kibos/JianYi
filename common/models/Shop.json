@@ -9,7 +9,7 @@
     "seller": {
       "type": "object",
       "required": true,
-      "default": null
+      "default": "{}"
     },
     "name": {
       "type": "string",
