@@ -5,11 +5,77 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "Number",
+      "required": true,
+      "default": 1
+    },
+    "stock": {
+      "type": "Number",
+      "required": true,
+      "default": 1
+    },
+    "description": {
+      "type": "String"
+    },
+    "model_number": {
+      "type": "String"
+    },
+    "address": {
+      "type": "String",
+      "default": "beijing",
+      "desc": "建材生产地址"
+    },
+    "is_alive": {
+      "type": "Boolean",
+      "default": false
+    },
+    "is_pass": {
+      "type": "Boolean",
+      "default": false
+    },
+    "brand_name": {
+      "type": "String"
+    },
+    "visited": {
+      "type": "Number",
+      "default": 0
+    },
+    "solded": {
+      "type": "Number",
+      "default": 0
+    },
+    "updatedAt": {
+      "type": "Date",
+      "required": true
+    },
+    "createdAt": {
+      "type": "Date",
+      "required": true
+    },
+    "start_time": {
+      "type": "Date"
+    },
+    "end_time": {
+      "type": "Date"
+    },
+    "file_path": {
+      "type": "String"
+    }
+  },
   "validations": [],
   "relations": {
-
-
+    "id": {
+      "type": "hasMany",
+      "model": "picture",
+      "foreignKey": "pro_id",
+      "through": "product"
+    }
   },
   "acls": [],
   "methods": {}

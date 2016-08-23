@@ -1,0 +1,23 @@
+{
+  "name": "picture",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "is_default": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "pic_url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
