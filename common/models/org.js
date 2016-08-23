@@ -1,3 +1,3 @@
-module.exports = function(org) {
+module.exports = function(Org) {
 
 };

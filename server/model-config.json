@@ -48,7 +48,7 @@
       "emailVerificationRequired": false
     }
   },
-  "org": {
+  "Org": {
     "dataSource": "mongodb",
     "public": true
   },
@@ -64,22 +64,6 @@
     "dataSource": "mongodb",
     "public": true
   },
-  "Order": {
-    "dataSource": "mongodb",
-    "public": true
-  },
-  "Customer": {
-    "dataSource": "mongodb",
-    "public": true
-  },
-  "Shop": {
-    "dataSource": "mongodb",
-    "public": true
-  },
-  "Seller": {
-    "dataSource": "mongodb",
-    "public": true
-  },
   "category": {
     "dataSource": "mongodb",
     "public": true
@@ -87,5 +71,10 @@
   "picture": {
     "dataSource": "mongodb",
     "public": true
+  },
+  "Seller": {
+    "dataSource": "mongodb",
+    "public": true
   }
+
 }

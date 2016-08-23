@@ -4,7 +4,10 @@
     angular
         .module('app')
         .config(routeConfig);
-
+        .value('appConf', {
+          isAuthorized: false,
+          isCollapsed: false
+        })
     /* @ngInject */
     function routeConfig($stateProvider, $urlRouterProvider) {
         // Setup the apps routes
@@ -19,14 +22,30 @@
         .state('commodity', {
           url: '/commodity/modify',
           templateUrl: 'app/src/commodity/commodity_modify.html',
-          authenticate: true
+          authenticate: true,
+          data: {
+            permissions: {
+              only: ['AUTHORIZED'],
+              redirectTo: function() {
+                return {
+                  state: 'commodity',
+                  options: {
+                    reload: true
+                  }
+                };
+              }
+            }
+          }
         })
         .state('order', {
           url: '/order/order_my',
           templateUrl: 'app/src/order/order_my.html',
           authenticate: true
         });
-
+        $urlRouterProvider.otherwise(function($injector) {
+          var $state = $injector.get('$state');
+          $state.go('order');
+        });
         // .state('404', {
         //     url: '/404',
         //     views: {

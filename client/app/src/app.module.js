@@ -11,7 +11,11 @@ angular
     'app.account',
     'ui.bootstrap',
     'ngTouch',
-    'ngAnimate'
+    'ngAnimate',
+    'ngMaterial',
+    'ngMessages',
+    'md.data.table',
+  'permission', 'permission.ui'
   ])
 
 })();

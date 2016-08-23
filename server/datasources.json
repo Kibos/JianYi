@@ -6,7 +6,7 @@
   "mongodb": {
     "host": "localhost",
     "port": 27017,
-    "url": "mongodb://localhost:27017/jyData",
+    "url": "mongodb://127.0.0.1:27017/jyData",
     "database": "mongose-loop",
     "password": "",
     "name": "mongodb",
@@ -17,12 +17,7 @@
     "name": "transient",
     "connector": "transient"
   },
-    "storage": {
-    "name": "storage",
-    "connector": "loopback-component-storage",
-    "provider": "filesystem",
-    "root": "./server/storage"
-  },
+
     "emailDs": {
     "name": "emailDs",
     "defaultForType": "mail",

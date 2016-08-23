@@ -8,6 +8,7 @@
     "posttest": "nsp check"
   },
   "dependencies": {
+    "angular-material": "^1.1.0",
     "angular-permission": "^4.0.3",
     "compression": "^1.0.3",
     "cors": "^2.5.2",

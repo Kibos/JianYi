@@ -1,6 +1,6 @@
 {
   "name": "Seller",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -9,10 +9,33 @@
     "createTime": {
       "type": "date",
       "default": "1970-01-01T00:00:01.990Z"
+    },
+  "JyVerify": {
+      "type": "Boolean",
+      "default": false
     }
   },
   "validations": [],
   "relations": {},
-  "acls": [],
+  "acls": [
+      {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findVerifySeller"
+      },
+      {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "findNotVerifySeller"
+      },
+      {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "VerifySeller"
+      }
+  ],
   "methods": {}
 }

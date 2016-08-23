@@ -24,7 +24,7 @@ module.exports = function (app, options) {
   var roleMapping = require("./roleMapping.js")(app, app.models.RoleMapping);
   app.roleMapping = mongoose.model('roleMapping', roleMapping.schema);
 
-  var org = require("./org.js")(app, app.models.org);
+  var org = require("./org.js")(app, app.models.Org);
   app.org = mongoose.model('org', org.schema);
 
   var JyOrg = require("./JyOrg.js")(app, app.models.JyOrg);
