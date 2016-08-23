@@ -32,15 +32,15 @@
     "dataSource": "db",
     "public": false
   },
-  "product": {
+  "Product": {
     "dataSource": "mongodb",
     "public": true
   },
-  "category": {
+  "Category": {
     "dataSource": "mongodb",
     "public": true
   },
-  "picture": {
+  "Picture": {
     "dataSource": "mongodb",
     "public": true
   }
