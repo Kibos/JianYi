@@ -12,7 +12,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "shops": {
+      "type": "referencesMany",
+      "model": "Shop",
+      "foreignKey": "shopIds",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+
+  },
   "acls": [],
   "methods": {}
 }

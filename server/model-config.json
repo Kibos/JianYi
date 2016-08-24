@@ -13,7 +13,6 @@
       "./mixins"
     ]
   },
-
   "AccessToken": {
     "dataSource": "mongodb",
     "public": false
@@ -30,7 +29,6 @@
     "dataSource": "mongodb",
     "public": false
   },
-
   "user": {
     "dataSource": "mongodb",
     "public": true,
@@ -85,6 +83,10 @@
     "public": true
   },
   "picture": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "ProductQuantity": {
     "dataSource": "mongodb",
     "public": true
   }

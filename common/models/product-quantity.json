@@ -1,0 +1,25 @@
+{
+  "name": "ProductQuantity",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "quantity":"Number"
+  },
+  "validations": [],
+  "relations": {
+    "product": {
+      "type" : "embedsOne",
+      "model": "Product",
+      "property": "product",
+      "options": {
+
+      }
+    }
+
+  },
+  "acls": [],
+  "methods": {}
+}
