@@ -6,11 +6,6 @@
     "validateUpsert": true
   },
   "properties": {
-    "seller": {
-      "type": "object",
-      "required": true,
-      "default": "{}"
-    },
     "name": {
       "type": "string",
       "required": true,
