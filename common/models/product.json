@@ -15,6 +15,12 @@
       "required": true,
       "default": 1
     },
+    "owner_id": {
+      "type": "String"
+    },
+    "model_number": {
+      "type": "String"
+    },
     "stock": {
       "type": "Number",
       "required": true,
@@ -70,11 +76,10 @@
   },
   "validations": [],
   "relations": {
-    "id": {
+    "picture": {
       "type": "hasMany",
       "model": "picture",
-      "foreignKey": "pro_id",
-      "through": "product"
+      "foreignKey": "pro_id"
     }
   },
   "acls": [],
