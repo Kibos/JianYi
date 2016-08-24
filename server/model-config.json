@@ -58,10 +58,6 @@
     "dataSource": "mongodb",
     "public": false
   },
-  "Product": {
-    "dataSource": "mongodb",
-    "public": true
-  },
   "Order": {
     "dataSource": "mongodb",
     "public": true
@@ -78,15 +74,19 @@
     "dataSource": "mongodb",
     "public": true
   },
+  "Product": {
+    "dataSource": "mongodb",
+    "public": true
+  },
   "Category": {
     "dataSource": "mongodb",
     "public": true
   },
   "Picture": {
-    "dataSource": "mongodb",
-    "public": true
+    "dataSource": "transient",
+    "public": false
   },
-  "ProductQuantity": {
+    "ProductQuantity": {
     "dataSource": "mongodb",
     "public": true
   }

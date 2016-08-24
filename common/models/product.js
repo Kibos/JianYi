@@ -2,7 +2,7 @@ module.exports = function(Product) {
   //-----------------------------------------------------------
   //价格区间查询商品 1
   Product.productOrderList = function(argObj,cb) {
-    Product.find({argObj}, function(err,instances){
+    Product.find(argObj, function(err,instances){
       // {where:{price:{gte:mixPrice,lte:maxPrice}},order: 'price DESC'}
       if(err) { cb(err); }
       cb(null,instances);
