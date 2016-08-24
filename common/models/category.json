@@ -6,10 +6,7 @@
     "validateUpsert": true
   },
   "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    },
+  
     "superior": {
       "type": "string",
       "required": true
@@ -22,9 +19,9 @@
   "validations": [],
   "relations": {
     "product": {
-      "type": "embedsMany",
-      "model": "product",
-      "property": "productList",
+      "type": "referencesMany",
+      "model": "Product",
+      "property": "productIds",
       "options": {
         "validate": true,
         "forceId": false

@@ -77,10 +77,14 @@
   "validations": [],
   "relations": {
     "picture": {
-      "type": "hasMany",
-      "model": "picture",
-      "foreignKey": "pro_id"
-    }
+      "type": "embedsMany",
+      "model": "Picture",
+      "property": "pictureList",
+      "options": {
+        "validate": true,
+        "forceId": true,
+        "persistent":true
+      }}
   },
   "acls": [],
   "methods": {}
