@@ -3,11 +3,13 @@
 
     angular
         .module('app')
-        .config(routeConfig);
+        .config(routeConfig)
         .value('appConf', {
           isAuthorized: false,
           isCollapsed: false
         })
+  ;
+
     /* @ngInject */
     function routeConfig($stateProvider, $urlRouterProvider) {
         // Setup the apps routes
@@ -17,7 +19,8 @@
         .state('index', {
           url: '/',
           templateUrl: '../index.html',
-          authenticate: true
+          authenticate: true,
+          controller:'appController'
         })
         .state('commodity', {
           url: '/commodity/modify',
@@ -44,8 +47,12 @@
         });
         $urlRouterProvider.otherwise(function($injector) {
           var $state = $injector.get('$state');
-          $state.go('order');
+          $state.go('commodity');
         });
+        // $urlRouterProvider.otherwise(function($injector) {
+        //   var $state = $injector.get('$state');
+        //   $state.go('order');
+        // });
         // .state('404', {
         //     url: '/404',
         //     views: {

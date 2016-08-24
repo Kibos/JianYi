@@ -7,6 +7,8 @@
 angular
   .module('app', [
     'ui.router',
+    'permission',
+    'permission.ui',
     'lbServices',
     'app.account',
     'ui.bootstrap',
@@ -15,7 +17,25 @@ angular
     'ngMaterial',
     'ngMessages',
     'md.data.table',
-  'permission', 'permission.ui'
+
+
   ])
+  .controller('appController', function($state, appConf) {
+    // variables
+    this.conf = appConf;
+
+    // // methods
+    // this.authorize = authorize;
+    // this.toggleMenu = toggleMenu;
+
+    // function authorize() {
+    //   appConf.isAuthorized = !appConf.isAuthorized;
+    //   $state.reload();
+    // }
+
+    // function toggleMenu() {
+    //   appConf.isCollapsed = !appConf.isCollapsed;
+    // }
+  });
 
 })();
