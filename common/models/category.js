@@ -1,5 +1,15 @@
 module.exports = function(Category) {
 
+  Category.greet = function(msg, cb) {
+    cb(null, 'Greetings... ' + msg);
+  }
 
+  Category.remoteMethod(
+      'greet',
+      {
+        accepts: {arg: 'msg', type: 'string'},
+        returns: {arg: 'greeting', type: 'string'}
+      }
+  );
 //  Category.disableRemoteMethod('create', true);
 };
