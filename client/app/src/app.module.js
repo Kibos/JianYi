@@ -9,6 +9,7 @@ angular
     'ui.router',
     'lbServices',
     'app.account',
+    'app.commodity',
     'ui.bootstrap',
     'ngTouch',
     'ngAnimate'

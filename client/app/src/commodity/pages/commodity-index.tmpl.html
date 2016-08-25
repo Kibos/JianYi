@@ -39,7 +39,7 @@ TEXT-DECORATION:none;
 
 
 
-	<div id="container" class="container">
+	<div id="container" class="container"  ng-app="app.commodity" ng-controller="commodityController">
 
 		<form class="form-horizontal" method="post">
 			<fieldset>
@@ -58,20 +58,21 @@ TEXT-DECORATION:none;
 						<th>操作</th>
 					</tr>
 
-					<tr>
-						<td></td>
-						<td></td>
-						 <td></td>
-	           <td></td>
-						<td></td>
-						<td></td>
-					  <td></td>
-						<td></td>
+					<tr  ng-repeat="item in vm.productList" >
+						<td>{{ $index + 1 }}</td>
+						<td>{{item.name}}</td>
+						 <td>{{item.price}}</td>
+	           <td>{{item.stock}}</td>
+						<td>{{item.is_alive}}</td>
+						<td>{{item.is_pass}}</td>
+					  <td>{{item.createdAt|date : 'yyyy-MM-dd hh:mm:ss EEEE'}}</td>
+              <td>{{item.updatedAt|date : 'yyyy-MM-dd hh:mm:ss EEEE'}}</td>
 
 
 
-						<td><a href="">修改</a> <a
-							href="" > 删除</a></td>
+
+						<td><a href="" ng-click="vm.editUser(user.id)">修改</a> |<a
+							href="" ng-click="vm.editUser(user.id)"> 删除</a></td>
 					</tr>
 
 

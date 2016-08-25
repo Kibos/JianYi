@@ -16,16 +16,7 @@
           templateUrl: '../index.html',
           authenticate: true
         })
-        .state('commodity', {
-          url: '/commodity/modify',
-          templateUrl: 'app/src/commodity/commodity_index.html',
-          authenticate: true
-        })
-        .state('commodity_add_category', {
-          url: '/commodity/commodity_add_category',
-          templateUrl: 'app/src/commodity/commodity_add_category.html',
-          authenticate: true
-        })
+      
         .state('order', {
           url: '/order/order_my',
           templateUrl: 'app/src/order/order_my.html',
