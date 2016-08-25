@@ -82,8 +82,8 @@
       "property": "pictureList",
       "options": {
         "validate": true,
-        "forceId": true,
-        "persistent":true
+        "forceId": false
+
       }}
   },
   "acls": [],

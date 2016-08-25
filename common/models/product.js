@@ -1,13 +1,14 @@
 module.exports = function(Product) {
   //-----------------------------------------------------------
   //object参数 查询商品 1
+    // ps:{where:{price:{gte:mixPrice,lte:maxPrice}},order: 'price DESC'}
   Product.productOrderList = function(argObj,cb) {
     Product.find(argObj, function(err,instances){
-      // ps:{where:{price:{gte:mixPrice,lte:maxPrice}},order: 'price DESC'}
+
       if(err) { cb(err); }
       cb(null,instances);
     });
-  };
+  }
   Product.remoteMethod('productOrderList', {
     accepts: [{arg: 'argObj',type: 'object',  http: { source: 'body' }}],
     returns: {arg: 'instances', type: 'array',root:true},
@@ -82,5 +83,6 @@ module.exports = function(Product) {
   	returns: {arg: 'product', type: 'array',root:true},
   	http: {path:'/fuzzySearchByName', verb: 'get'}
   });
+
 
 };
