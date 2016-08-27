@@ -16,7 +16,7 @@ function accountController($state, User) {
     };
     function getUsers() {
         User.findNotVerfiedUsers(function(resp){
-            console.log(resp);
+            // console.log(resp);
             vm.userList = resp;
         });
     }

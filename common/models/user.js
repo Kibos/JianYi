@@ -13,7 +13,7 @@ module.exports = function(user) {
 
 
 
- //一个用户直接创建一个用户
+ //一个用户直接创建一个用户{"email":"123456@qq.com","password":"password"}
   User.createUserWithUserData = function (data, callback) {
     User.create(data, function (err, inst) {
       if (err) {
@@ -201,38 +201,119 @@ module.exports = function(user) {
     }
   );
 
+//修改密码需要之前的密码和新密码 {"oldPassword":"","newPassword":""}
+  User.changePasswordWithOld = function(data, cb) {
+    User.find({where:{id:data.id}},function(err, userArr){
+
+      if(err) cb(err);
+      console.log(data.oldPassword)
+      userArr[0].hasPassword(data.oldPassword,function(err, isMatch){
+        console.log(isMatch)
+        if(err) cb(err);
+
+        if(isMatch){
+          userArr[0].updateAttributes({password: User.hashPassword(data.newPassword)},function (err,res) {
+            if(err) cb(err);
+            cb(null,res);
+          })
+        }else {
+          cb('old password is not right');
+        }
+      })
+
+
+
+    })
+  };
+
+
+  //增加地址，data里面需要用户的id。address信息。
+  //{"id":"579a25992dbd647310ffa576", "address":{"city":"beijing","cityCode":1}}
+  user.Addaddres = function(data, callback) {
+
+    user.find({
+      where: {
+        id: data.id
+      }
+    }, function(err, userArr) {
+      if (err) {
+        callback(err);
+      }
+      userArr[0].addresss.create(data.address, function(err, add) {
+        if (err) {
+          callback(err);
+        }
+        callback(null, add);
+      });
+    });
+
+  };
+  user.remoteMethod(
+    'Addaddres', {
+      accepts: {
+        arg: 'data',
+        type: 'object',
+        http: {
+          source: 'body'
+        }
+      },
+      returns: {
+        arg: 'result',
+        type: 'string',
+        root: true
+      },
+      http: {
+        'verb': 'post',
+        'path': '/Addaddres'
+      }
+    }
+  );
+
+
+  User.remoteMethod(
+    'changePasswordWithOld', {
+      accepts: { arg: 'data', type: 'object', http:{ source:'body' } },
+      returns: { arg: 'res', type: 'object', root: true },
+      http: {  path: '/changePasswordWithOld', verb: 'post' }
+    }
+  );
   //send verification email after registration
-  User.afterRemote('create', function (context, user, next) {
-    console.log('> user.afterRemote triggered');
-    console.log(user.email);
+  User.afterRemote('create', function (context, kuser, next) {
+
+    console.log(kuser)
+
+    console.log('> kuser.afterRemote triggered');
+    console.log(kuser.email);
     var options = {
       type: 'email',
-      to: user.email,
+      to: kuser.email,
       from: '13165508732@163.com',
       subject: 'Thanks for registering.',
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: '/verified',
-      user: user
+      user: kuser
     };
 
-    user.verify(options, function (err, response) {
+    kuser.verify(options, function (err, response) {
       if (err) return next(err);
 
       console.log('> verification email sent:', response);
 
-      context.res.render('response', {
-        title: 'Signed up successfully',
-        content: 'Please check your email and click on the verification link ' +
-        'before logging in.',
-        redirectTo: '/',
-        redirectToLinkText: 'Log in'
-      });
+      // context.res.render('response', {
+      //   title: 'Signed up successfully',
+      //   content: 'Please check your email and click on the verification link ' +
+      //   'before logging in.',
+      //   redirectTo: '/',
+      //   redirectToLinkText: 'Log in'
+      // });
+          next();
+
     });
+    // next();
   });
 
   //send password reset link when requested
   User.on('resetPasswordRequest', function (info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var url = 'http://' + 'localhost' + ':' + '3001' + '/#/reset-password';
     var html = 'Click <a href="' + url + '?access_token=' +
       info.accessToken.id + '">here</a> to reset your password';
 
@@ -253,7 +334,7 @@ User.ensureUser = function(kid, cb) {
   User.find( { where:{ id:kid } }, function (err, result) {
     if(err) cb(err);
 
-        result[0].updateAttributes({emailVerified: true }, function(err,res){
+        result[0].updateAttributes({verify: true }, function(err,res){
               if(err) cb(err);
               cb(null,res);
           }
@@ -273,7 +354,7 @@ User.remoteMethod(
 
 //find not v user
 User.findNotVerfiedUsers = function(cb) {
-  User.find( { where:{ emailVerified: false } }, function (err, result) {
+  User.find( { where:{ verify: false } }, function (err, result) {
     if(err) cb(err);
     cb(null, result);
   })
@@ -287,7 +368,20 @@ User.remoteMethod(
 );
 
 
+//find not v user
+User.findVerfiedUsers = function(cb) {
+  User.find( { where:{ verify: true } }, function (err, result) {
+    if(err) cb(err);
+    cb(null, result);
+  })
 
+};
+User.remoteMethod(
+  'findVerfiedUsers', {
+    returns: { arg: 'users', type: ['user'], root: true },
+    http: {  path: '/findVerfiedUsers', verb: 'get' }
+  }
+);
 
 User.getApp(function(err, app) {
 
@@ -333,7 +427,76 @@ User.getApp(function(err, app) {
             });
         }
     );
+
+
+//{userId:"",position:""}
+  User.getRoleWithUserId = function(userId, cb) {
+
+
+    app.roleMapping
+      .find({principalId:userId})
+      .populate('roleId')
+      .exec(function (err, maps) {
+
+        if (err) {
+          return cb(err);
+        }
+
+        var maps = maps.toJson();
+
+        console(maps)
+            // async.each(maps,function(item, callback) {
+            //   app.roleMapping.remove({_id:item._id}, function (err) {
+            //     if(err) cb(err);
+            //   })
+            // }, function(err) {
+            //   if(err) cb(err);
+            //   cb(null,"ok")
+            //     log('1.2 err: ' + err);
+            // });
+
+
+      cb(maps);
+
+
+      });
+  };
+
+  User.remoteMethod(
+    'getRoleWithUserId', {
+      accepts: { arg: 'userId', type: 'string'},
+      returns: { arg: 'roles', type: ['object'], root: true },
+      http: {  path: '/getRoleWithUserId', verb: 'get' }
+    }
+  );
+
+
+
   });
+
+  // function initRoleWithRomeName(roleName) {
+  //   app.models.Role.find({where:{name:roleNames}}, function(err, roles){
+  //       if (err || roles.length != 1){
+  //         app.models.Role.create({
+  //           name: roleName,
+  //           ownerId: 0
+  //         }, function(err, role) {
+  //           if (err){
+  //             console.log('Can not init  role: ', err);
+  //             return;
+  //           }
+  //           return role;
+  //         });
+  //       } else {
+  //         return roles[0];
+  //       }
+
+  //     });
+  // } 
+
+
+
+
 
 
 

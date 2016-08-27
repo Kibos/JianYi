@@ -17,12 +17,12 @@ angular
     'ngMaterial',
     'ngMessages',
     'md.data.table',
+    'demoapp'
 
 
   ])
-  .controller('appController', function($state, appConf) {
+  .controller('appController', function($state) {
     // variables
-    this.conf = appConf;
 
     // // methods
     // this.authorize = authorize;

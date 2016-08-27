@@ -4,10 +4,7 @@
     angular
         .module('app')
         .config(routeConfig)
-        .value('appConf', {
-          isAuthorized: false,
-          isCollapsed: false
-        })
+
   ;
 
     /* @ngInject */
@@ -28,21 +25,23 @@
           authenticate: true,
           data: {
             permissions: {
-              only: ['AUTHORIZED'],
-              redirectTo: function() {
-                return {
-                  state: 'commodity',
-                  options: {
-                    reload: true
-                  }
-                };
-              }
+              only: 'role',
+              redirectTo: {
+                login: 'news',
+                isAuthorized: 'order',
+      
+                default: 'account.account-define'
             }
-          }
+          }}
         })
         .state('order', {
           url: '/order/order_my',
           templateUrl: 'app/src/order/order_my.html',
+          authenticate: true
+        })
+        .state('news', {
+          url: '/news/newslist',
+          templateUrl: 'app/src/news/news.tmpl.html',
           authenticate: true
         });
         $urlRouterProvider.otherwise(function($injector) {

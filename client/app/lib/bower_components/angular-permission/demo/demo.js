@@ -95,9 +95,24 @@ app
   })
 
   .run(function(PermRoleStore, appConf) {
+
+    console.log(PermRoleStore)
+
+    PermRoleStore.defineRole('USER', ['viewAuthentication', 'viewCharts', 'viewMaps'], checkRole);
+    
+            // function that calls user service to check if permission is allowed
+    function checkRole(permission, transitionProperties) {
+        // return User.hasPermission(permission, transitionProperties);
+        console.log(permission)
+        console.log(transitionProperties)
+    }
+
     PermRoleStore.defineRole('AUTHORIZED', function() {
-      return appConf.isAuthorized;
+      return true;
     });
+
+    console.log( PermRoleStore.getRoleDefinition('USER') )
+    console.log(PermRoleStore.getStore())
   })
 
   .value('appConf', {

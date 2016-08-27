@@ -10,8 +10,10 @@
   "dependencies": {
     "angular-material": "^1.1.0",
     "angular-permission": "^4.0.3",
+    "body-parser": "^1.15.2",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "ejs": "^2.5.1",
     "helmet": "^1.3.0",
     "leancloud-storage": "^1.3.3",
     "loopback": "^2.22.0",
